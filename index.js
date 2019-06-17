@@ -6,10 +6,13 @@ module.exports = function Bosstester(mod) {
     if (mod.proxyAuthor !== 'caali' || !global.TeraProxy)
         mod.warn('You are trying to use this module on an unsupported version of tera-proxy. It may not work as expected, and even if it does now it may break at any point in the future.');
 
+    const flowerSet = new Set();
+
     let npccid = 2222222n,
         safespawn = true,
         spawning = false,
         id = 1111111,
+        uid0 = 999999999n,
         bossloc = {},
         huntid = 0,
         model = 0,
@@ -59,6 +62,14 @@ module.exports = function Bosstester(mod) {
             stack = 1;
         }
         startselfabn(Number.parseInt(id), Number.parseInt(stack));
+    });
+
+    mod.command.add('summonmarker', (xx, yy, degrees, radius) => {
+      Spawnitem(553, {x:xx, y:yy}, degrees, radius);
+    });
+
+    mod.command.add('clearmarkers', () => {
+      DespawnAll();
     });
 
     mod.hook('C_PLAYER_LOCATION', 5, (event) => {
@@ -210,4 +221,55 @@ module.exports = function Bosstester(mod) {
             }
         };
     }
+
+    /*
+    4 circles of center: (135,200) etc
+    each circle is of radius 200
+    */
+
+    function Spawnitem(item, offset, degrees, radius) {
+  		let r = null, rads = null, finalrad = null, pos = {};
+
+  		r = bosslocw - Math.PI;
+  		rads = (degrees * Math.PI/180);
+  		finalrad = r - rads;
+  		pos.x = bossloc.x + offset.x * Math.cos(r) - offset.y * Math.sin(r) + radius * Math.cos(finalrad);
+  		pos.y = bossloc.y + offset.y * Math.cos(r) + offset.x * Math.sin(r) + radius * Math.sin(finalrad);
+  		pos.z = bossloc.z;
+
+  		mod.send('S_SPAWN_COLLECTION', 4, {
+  			gameId : uid0,
+  			id : item,
+  			amount : 1,
+  			loc : pos,
+  			w : r,
+  			unk1 : 0,
+  			unk2 : 0
+  		});
+
+  		flowerSet.add(uid0);
+  		uid0--;
+  	}
+
+    function DespawnAll() {
+      flowerSet.forEach(function(uid, dummy, set){
+        Despawn(uid);
+       });
+       flowerSet.clear();
+    }
+
+  	function Despawn(uid_arg0) {
+  		mod.send('S_DESPAWN_COLLECTION', 2, {
+  			gameId : uid_arg0
+  		});
+  	}
+
+    function SpawnitemCircle(item, offset, radius)
+  	{
+  		for (var degrees=0; degrees<360; degrees+=10)
+  		{
+  			Spawnitem(item, offset, degrees, radius);
+  		}
+  	}
+
 };

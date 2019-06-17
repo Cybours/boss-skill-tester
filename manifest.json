@@ -1,10 +1,10 @@
 {
 	"files": {
-		"Readme.md": "5f6f3de1172a8c855ec16f5a2f8ab48ea29c9a7a9e29b866acb4f02ab7a6f478",
-		"index.js": "ed2243b010674194aa36e591e25e861b84e2f3b17ce31500f8db8e3d1213cf3a",
-		"module.json": "fcf4222080dcbe248133a352ad105431480e05f2b6f7939fa2b8f15594aaa25f",
-		"settings_migrator.js": "0b15a07833baaac0f75ac3beb510ce198346ecc870c3182f5098e9c9ace44dd2",
-		"settings_structure.js": "9fcd66a92d9c452125e1c4ab01f0804b95ca91aaedb4b036716fdb9ee246b6f0"
+		"index.js": "88feba56094511262d9c2bb0f1e21932e789f3129ef735dbb1c99d5a40ee8645",
+    "module.json": "c7d50f3173f741abdcd70239aea5866d0632cda674821cde69aacf1c612e8167",
+    "Readme.md": "cf19b1b6b599ad66ab6d629cc3c735138b6aff96b72d6770a27e7a300bb17fe2",
+    "settings_migrator.js": "0c11a23de127868758ccff9c6fb890cf1430c7742ecb00b45edae6e99ad1acc4",
+    "settings_structure.js": "f4bded565aba9a2b875bcb479b968cfaa97ba12b9db876c2dcc1ad6f699b9d11"
 	},
 	"defs": {
 		"C_MEET_BOSS_INFO": "raw",
