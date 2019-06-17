@@ -11,6 +11,6 @@
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js"
     },
-    "servers": ["https://raw.githubusercontent.com/Tera-Shiraneko/boss-skill-tester/master/"],
-    "supportUrl": "https://github.com/Tera-Shiraneko/boss-skill-tester/issues"
+    "servers": ["https://raw.githubusercontent.com/Cybours/boss-skill-tester/master/"],
+    "supportUrl": "https://github.com/Cybours/boss-skill-tester/issues"
 }
