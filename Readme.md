@@ -1,7 +1,6 @@
 ## Tera proxy module for testing boss skills and another stuff.
-with a command to spawn markers relative to boss position
 ---
-
+with a command to spawn markers relative to boss position
 ## Command
 - Type `/8 summontoggle` to enable or disable the module default is on.
 - Type `/8 summon + hunting zone + template id` to spawn the monster.
